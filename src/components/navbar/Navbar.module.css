@@ -1,8 +1,12 @@
-.nav {
+.header {
   grid-row: 1/-1;
   background-color: #161d2f;
   display: flex;
   flex-direction: column;
+}
+
+.header ul {
+  list-style: none;
 }
 
 a:visited,
