@@ -1,0 +1,17 @@
+.nav {
+  grid-row: 1/-1;
+  background-color: #161d2f;
+  display: flex;
+  flex-direction: column;
+}
+
+a:visited,
+a:link {
+  text-decoration: none;
+  color: #bbb;
+  transition: all 0.3s;
+}
+a:hover,
+a:active {
+  color: #fff;
+}
