@@ -9,6 +9,7 @@ Working so far:
 - Bookmarking and removing bookmarks, along with /bookmarks works fully, managing bookmarks (and search) via Redux
 
 TODO:
+- Add loading state/spinners
 - ~~Add github actions for auto building~~ done
 - Fetching different image sizes according to screen size
 - Media queries/responsiveness
