@@ -7,10 +7,9 @@ import styles from "./Search.module.css";
 function Search(props: { data: Entry[] }) {
   const search = useSelector((state: any) => state.filters.search);
 
-  const cards = props.data.map((entry) => {
-    if (entry.title.toLowerCase().includes(search))
-      return <EntryCard key={entry.id} data={entry} />;
-  });
+  const cards = props.data
+    .filter((entry) => entry.title.toLowerCase().includes(search))
+    .map((entry) => <EntryCard key={entry.id} data={entry} />);
 
   return (
     <div className={styles.container}>

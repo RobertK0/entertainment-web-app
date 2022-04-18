@@ -9,7 +9,10 @@ function Bookmarks(props: { data: Entry[] }) {
 
   const movieCards = props.data
     .filter(
-      (entry) => entry.isBookmarked && entry.category === "Movie"
+      (entry) =>
+        entry.isBookmarked &&
+        entry.category === "Movie" &&
+        entry.title.toLowerCase().includes(search)
     )
     .map((entry) => {
       return <EntryCard data={entry} />;
@@ -18,7 +21,9 @@ function Bookmarks(props: { data: Entry[] }) {
   const tvShowCards = props.data
     .filter(
       (entry) =>
-        entry.isBookmarked && entry.category === "TV Series"
+        entry.isBookmarked &&
+        entry.category === "TV Series" &&
+        entry.title.toLowerCase().includes(search)
     )
     .map((entry) => {
       return <EntryCard data={entry} />;

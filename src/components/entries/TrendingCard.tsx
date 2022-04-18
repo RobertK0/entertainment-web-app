@@ -11,7 +11,7 @@ function TrendingCard(props: { data: Entry }) {
   if (props.data.category === "TV Series") icon = <TvShowIcon />;
   return (
     <div className={styles.card}>
-      <img src={props.data.thumbnail.trending?.small} />
+      <img alt="" src={props.data.thumbnail.trending?.small} />
       <div className={styles.container}>
         <div className={styles.info}>
           {props.data.year} &#8226; {icon} {props.data.category}{" "}

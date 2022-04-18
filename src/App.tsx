@@ -34,7 +34,6 @@ function App() {
   const [entries, setEntries] = useState<Entry[]>([]);
 
   useEffect(() => {
-    console.log("doing something");
     const newData = [...entries];
     newData.forEach((entry) => {
       if (bookmarks.includes(entry.id)) entry.isBookmarked = true;

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { Entry } from "../App";
 import EntryCard from "../components/entries/EntryCard";
 import TrendingCard from "../components/entries/TrendingCard";
