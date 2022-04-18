@@ -13,8 +13,8 @@ function Search(props: { data: Entry[] }) {
   });
 
   return (
-    <div>
-      <h2>Recommended for you</h2>
+    <div className={styles.container}>
+      <h2>Results for "{search}"</h2>
       <div className={styles["card-container"]}>{cards}</div>
     </div>
   );

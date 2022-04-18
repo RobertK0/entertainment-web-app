@@ -1,8 +1,14 @@
 .container {
   grid-column: 2;
+  display: flex;
+  align-items: center;
 }
 
 .input {
+  height: 50%;
+  width: 500px;
+  margin-left: 32px;
+
   font-family: inherit;
   font-size: 20px;
 

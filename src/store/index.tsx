@@ -1,10 +1,17 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import {
+  configureStore,
+  createSlice,
+  current,
+} from "@reduxjs/toolkit";
 
-const initialBookmarks =
-  JSON.parse(
-    //@ts-ignore
-    localStorage.getItem("bookmarks")
-  ) || [];
+const persistState = function (state: string[]) {
+  localStorage.setItem("bookmarks", JSON.stringify(state));
+};
+
+const initialBookmarks = JSON.parse(
+  //@ts-ignore
+  localStorage.getItem("bookmarks")
+) || ["en1", "en5"];
 
 const filtersSlice = createSlice({
   name: "filters",
@@ -20,8 +27,15 @@ const bookmarksSlice = createSlice({
   name: "bookmarks",
   initialState: initialBookmarks,
   reducers: {
-    addBookmark() {},
-    removeBookmark() {},
+    addBookmark(state, payload) {
+      state.push(payload.payload);
+      persistState(current(state));
+    },
+    removeBookmark(state, payload) {
+      const index = state.indexOf(payload.payload);
+      state.splice(index, 1);
+      persistState(current(state));
+    },
   },
 });
 
@@ -31,6 +45,11 @@ const store = configureStore({
     filters: filtersSlice.reducer,
   },
 });
+
+export type State = {
+  bookmarks: string[];
+  filters: { search: string };
+};
 
 export const bookmarksActions = bookmarksSlice.actions;
 export const filterActions = filtersSlice.actions;

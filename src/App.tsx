@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Route, BrowserRouter, Redirect } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 
 import styles from "./App.module.css";
 import Navbar from "./components/navbar/Navbar";
@@ -10,11 +10,13 @@ import Home from "./pages/Home";
 import Movies from "./pages/Movies";
 import Search from "./pages/Search";
 import TvShows from "./pages/TvShows";
+import { State } from "./store";
 
 export type Entry = {
   id: string;
   category: string;
   isTrending: boolean;
+  isBookmarked?: boolean;
   rating: string;
   thumbnail: {
     regular: { large: string; medium: string; small: string };
@@ -25,8 +27,20 @@ export type Entry = {
 };
 
 function App() {
-  const search = useSelector((state: any) => state.filters.search);
+  const bookmarks = useSelector((state: State) => state.bookmarks);
+  const search = useSelector(
+    (state: State) => state.filters.search
+  );
   const [entries, setEntries] = useState<Entry[]>([]);
+  useEffect(() => {
+    console.log("doing something");
+    const newData = [...entries];
+    newData.forEach((entry) => {
+      if (bookmarks.includes(entry.id)) entry.isBookmarked = true;
+      if (!bookmarks.includes(entry.id)) entry.isBookmarked = false;
+    });
+    setEntries(newData);
+  }, [bookmarks]);
 
   useEffect(() => {
     const fetchData = async function () {
@@ -34,6 +48,12 @@ function App() {
         "https://react-entertainment-default-rtdb.europe-west1.firebasedatabase.app/entries.json"
       );
       const data: Entry[] = await response.json();
+      data.forEach((entry) => {
+        if (bookmarks.includes(entry.id)) entry.isBookmarked = true;
+        if (!bookmarks.includes(entry.id))
+          entry.isBookmarked = false;
+      });
+      console.log(data);
       setEntries(data);
     };
     fetchData();

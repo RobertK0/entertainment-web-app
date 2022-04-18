@@ -15,7 +15,7 @@ function TvShows(props: { data: Entry[] }) {
     });
   return (
     <div className={styles.container}>
-      <h2>Movies</h2>
+      <h2>TV Shows</h2>
       <div className={styles["card-container"]}>{cards}</div>
     </div>
   );
