@@ -10,8 +10,8 @@ import { ReactComponent as Logo } from "../../assets/logo.svg";
 function Navbar() {
   return (
     <header className={styles.header}>
+      <Logo />
       <nav>
-        <Logo />
         <ul>
           <li>
             <NavLink activeClassName={styles.active} to="/home">

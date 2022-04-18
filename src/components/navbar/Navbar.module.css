@@ -1,7 +1,7 @@
 .header {
   grid-row: 1/-1;
   background-color: #161d2f;
-  margin: 24px 32px;
+  margin-right: 32px;
   padding: 32px;
   border-radius: 20px;
 }
@@ -9,7 +9,6 @@
 .header nav {
   display: flex;
   flex-direction: column;
-  gap: 32px;
   align-items: center;
 }
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Route, BrowserRouter } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Route, BrowserRouter, Redirect } from "react-router-dom";
 
 import styles from "./App.module.css";
 import Navbar from "./components/navbar/Navbar";
@@ -7,6 +8,7 @@ import SearchBar from "./components/search/SearchBar";
 import Bookmarks from "./pages/Bookmarks";
 import Home from "./pages/Home";
 import Movies from "./pages/Movies";
+import Search from "./pages/Search";
 import TvShows from "./pages/TvShows";
 
 export type Entry = {
@@ -23,6 +25,7 @@ export type Entry = {
 };
 
 function App() {
+  const search = useSelector((state: any) => state.filters.search);
   const [entries, setEntries] = useState<Entry[]>([]);
 
   useEffect(() => {
@@ -36,14 +39,21 @@ function App() {
     };
     fetchData();
   }, []);
+  console.log("app", search);
 
   return (
     <div className={styles.app}>
       <Navbar />
       <SearchBar />
       <Route path="/home">
+        {search !== "" ? <Redirect to="/search" /> : ""}
         <Home data={entries} />
       </Route>
+      <Route path="/search">
+        {search === "" ? <Redirect to="/home" /> : ""}
+        <Search data={entries} />
+      </Route>
+
       <Route path="/movies">
         <Movies data={entries} />
       </Route>

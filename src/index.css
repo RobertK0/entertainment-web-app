@@ -1,5 +1,6 @@
 body {
-  margin: 0;
+  margin: 24px;
+
   font-family: "Outfit", sans-serif;
 }
 
@@ -7,6 +8,7 @@ body,
 html {
   min-height: 100vh;
   background-color: #10141e;
+  overflow-x: hidden;
 }
 
 #root {

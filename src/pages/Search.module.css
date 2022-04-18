@@ -1,0 +1,11 @@
+h2 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

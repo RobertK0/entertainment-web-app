@@ -3,13 +3,18 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 const initialBookmarks =
   JSON.parse(
     //@ts-ignore
-    localStorage.getItem("todo_list")
+    localStorage.getItem("bookmarks")
   ) || [];
 
-const entriesSlice = createSlice({
-  name: "entries",
-  initialState: [],
-  reducers: {},
+const filtersSlice = createSlice({
+  name: "filters",
+  initialState: { search: "" },
+  reducers: {
+    applySearch(state, action) {
+      console.log(action.payload);
+      state.search = action.payload;
+    },
+  },
 });
 
 const bookmarksSlice = createSlice({
@@ -24,9 +29,11 @@ const bookmarksSlice = createSlice({
 const store = configureStore({
   reducer: {
     bookmarks: bookmarksSlice.reducer,
+    filters: filtersSlice.reducer,
   },
 });
 
 export const bookmarksActions = bookmarksSlice.actions;
+export const filterActions = filtersSlice.actions;
 
 export default store;
