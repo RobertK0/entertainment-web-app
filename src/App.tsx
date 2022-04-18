@@ -40,7 +40,7 @@ function App() {
       if (!bookmarks.includes(entry.id)) entry.isBookmarked = false;
     });
     setEntries(newData);
-  }, [bookmarks]);
+  }, [bookmarks]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     const fetchData = async function () {
@@ -56,7 +56,7 @@ function App() {
       setEntries(data);
     };
     fetchData();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={styles.app}>
