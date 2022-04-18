@@ -1,4 +1,4 @@
-Live site: [TBD]
+Live site: https://robertk0.github.io/entertainment-web-app/#/
 
 Working so far: 
 - Fetching entries and assets via Firebase API
@@ -9,7 +9,7 @@ Working so far:
 - Bookmarking and removing bookmarks, along with /bookmarks works fully, managing bookmarks (and search) via Redux
 
 TODO:
-- Add github actions for auto building
+- ~~Add github actions for auto building~~ done
 - Fetching different image sizes according to screen size
 - Media queries/responsiveness
 - Comment up the code a bit
