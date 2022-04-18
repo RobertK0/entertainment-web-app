@@ -10,8 +10,8 @@ import Movies from "./pages/Movies";
 import TvShows from "./pages/TvShows";
 
 export type Entry = {
+  id: string;
   category: string;
-  isBookmarked: boolean;
   isTrending: boolean;
   rating: string;
   thumbnail: {
@@ -45,10 +45,10 @@ function App() {
         <Home data={entries} />
       </Route>
       <Route path="/movies">
-        <Movies />
+        <Movies data={entries} />
       </Route>
       <Route path="/tv-shows">
-        <TvShows />
+        <TvShows data={entries} />
       </Route>
       <Route path="/bookmarks">
         <Bookmarks />

@@ -5,11 +5,13 @@ import { ReactComponent as HomeIcon } from "../../assets/icon-nav-home.svg";
 import { ReactComponent as TvShows } from "../../assets/icon-nav-tv-series.svg";
 import { ReactComponent as Movies } from "../../assets/icon-nav-movies.svg";
 import { ReactComponent as Bookmarks } from "../../assets/icon-nav-bookmark.svg";
+import { ReactComponent as Logo } from "../../assets/logo.svg";
 
 function Navbar() {
   return (
     <header className={styles.header}>
       <nav>
+        <Logo />
         <ul>
           <li>
             <NavLink activeClassName={styles.active} to="/home">

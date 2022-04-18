@@ -7,7 +7,12 @@ function Home(props: { data: Entry[] }) {
   const cards = props.data.map((entry) => (
     <EntryCard data={entry} />
   ));
-  return <div className={styles["card-container"]}>{cards}</div>;
+  return (
+    <div>
+      <h2>Recommended for you</h2>
+      <div className={styles["card-container"]}>{cards}</div>
+    </div>
+  );
 }
 
 export default Home;
