@@ -6,6 +6,12 @@ const initialBookmarks =
     localStorage.getItem("todo_list")
   ) || [];
 
+const entriesSlice = createSlice({
+  name: "entries",
+  initialState: [],
+  reducers: {},
+});
+
 const bookmarksSlice = createSlice({
   name: "bookmarks",
   initialState: initialBookmarks,

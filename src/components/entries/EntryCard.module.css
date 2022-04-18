@@ -1,0 +1,19 @@
+.card {
+  display: grid;
+  grid-template-rows: repeat(3, min-content);
+}
+
+.card img {
+  border-radius: 10px;
+}
+
+.card div {
+  display: flex;
+  color: #aaa;
+}
+
+.card h3 {
+  display: inline;
+  color: #fff;
+  margin: 0;
+}

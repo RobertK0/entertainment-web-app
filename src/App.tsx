@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Route, BrowserRouter } from "react-router-dom";
 
 import styles from "./App.module.css";
@@ -8,13 +9,40 @@ import Home from "./pages/Home";
 import Movies from "./pages/Movies";
 import TvShows from "./pages/TvShows";
 
+export type Entry = {
+  category: string;
+  isBookmarked: boolean;
+  isTrending: boolean;
+  rating: string;
+  thumbnail: {
+    regular: { large: string; medium: string; small: string };
+    trending?: { large: string; small: string };
+  };
+  title: string;
+  year: number;
+};
+
 function App() {
+  const [entries, setEntries] = useState<Entry[]>([]);
+
+  useEffect(() => {
+    const fetchData = async function () {
+      const response = await fetch(
+        "https://react-entertainment-default-rtdb.europe-west1.firebasedatabase.app/entries.json"
+      );
+      const data: Entry[] = await response.json();
+      console.log(data);
+      setEntries(data);
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className={styles.app}>
       <Navbar />
       <SearchBar />
       <Route path="/home">
-        <Home />
+        <Home data={entries} />
       </Route>
       <Route path="/movies">
         <Movies />
