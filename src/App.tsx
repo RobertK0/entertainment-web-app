@@ -32,6 +32,7 @@ function App() {
     (state: State) => state.filters.search
   );
   const [entries, setEntries] = useState<Entry[]>([]);
+
   useEffect(() => {
     console.log("doing something");
     const newData = [...entries];
@@ -53,7 +54,6 @@ function App() {
         if (!bookmarks.includes(entry.id))
           entry.isBookmarked = false;
       });
-      console.log(data);
       setEntries(data);
     };
     fetchData();
@@ -79,7 +79,7 @@ function App() {
         <TvShows data={entries} />
       </Route>
       <Route path="/bookmarks">
-        <Bookmarks />
+        <Bookmarks data={entries} />
       </Route>
     </div>
   );

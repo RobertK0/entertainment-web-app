@@ -8,11 +8,12 @@ function Movies(props: { data: Entry[] }) {
   const search = useSelector((state: any) => state.filters.search);
 
   const cards = props.data
-    .filter((entry) => entry.category === "Movie")
-    .map((entry) => {
-      if (entry.title.toLowerCase().includes(search))
-        return <EntryCard data={entry} />;
-    });
+    .filter(
+      (entry) =>
+        entry.category === "Movie" &&
+        entry.title.toLowerCase().includes(search)
+    )
+    .map((entry) => <EntryCard key={entry.id} data={entry} />);
   return (
     <div className={styles.container}>
       <h2>Movies</h2>

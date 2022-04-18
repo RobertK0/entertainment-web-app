@@ -35,7 +35,7 @@ function EntryCard(props: { data: Entry }) {
         )}
       </div>
       <img src={props.data.thumbnail.regular.small} />
-      <div>
+      <div className={styles.description}>
         {props.data.year} &#8226; {icon} {props.data.category}{" "}
         &#8226; {props.data.rating}
       </div>

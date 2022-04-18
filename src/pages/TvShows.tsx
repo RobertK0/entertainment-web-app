@@ -8,11 +8,12 @@ function TvShows(props: { data: Entry[] }) {
   const search = useSelector((state: any) => state.filters.search);
 
   const cards = props.data
-    .filter((entry) => entry.category === "TV Series")
-    .map((entry) => {
-      if (entry.title.toLowerCase().includes(search))
-        return <EntryCard data={entry} />;
-    });
+    .filter(
+      (entry) =>
+        entry.category === "TV Series" &&
+        entry.title.toLowerCase().includes(search)
+    )
+    .map((entry) => <EntryCard key={entry.id} data={entry} />);
   return (
     <div className={styles.container}>
       <h2>TV Shows</h2>
