@@ -63,6 +63,9 @@ function App() {
     <div className={styles.app}>
       <Navbar />
       <SearchBar />
+      <Route path="/" exact>
+        <Redirect to="/home" />
+      </Route>
       <Route path="/home">
         {search !== "" ? <Redirect to="/search" /> : ""}
         <Home data={entries} />
