@@ -9,6 +9,7 @@ Working so far:
 - Bookmarking and removing bookmarks, along with /bookmarks works fully, managing bookmarks (and search) via Redux
 
 TODO:
+- Fetching different image sizes according to screen size
 - Media queries/responsiveness
 - Comment up the code a bit
 - Accessibility
