@@ -11,8 +11,7 @@ const filtersSlice = createSlice({
   initialState: { search: "" },
   reducers: {
     applySearch(state, action) {
-      console.log(action.payload);
-      state.search = action.payload;
+      state.search = action.payload.toLowerCase();
     },
   },
 });

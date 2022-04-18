@@ -13,7 +13,7 @@ function SearchBar() {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <SearchIcon />
       <input
         ref={searchRef}

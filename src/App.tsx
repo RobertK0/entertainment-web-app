@@ -34,12 +34,10 @@ function App() {
         "https://react-entertainment-default-rtdb.europe-west1.firebasedatabase.app/entries.json"
       );
       const data: Entry[] = await response.json();
-      console.log(data);
       setEntries(data);
     };
     fetchData();
   }, []);
-  console.log("app", search);
 
   return (
     <div className={styles.app}>

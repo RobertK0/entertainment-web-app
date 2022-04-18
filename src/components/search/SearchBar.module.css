@@ -1,3 +1,7 @@
+.container {
+  grid-column: 2;
+}
+
 .input {
   font-family: inherit;
   font-size: 20px;
